@@ -1,0 +1,174 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+div.general{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: cambiarColor 5s infinite;
+    transition: background-color 1s ease-in-out;
+}
+.bola {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; 
+    border: 3px solid rgb(255, 255, 255);
+    background-color: #b3d9f1; 
+    position: absolute; 
+}
+@keyframes cambiarColor {
+    0% {
+        background-color: rgb(254, 94, 94); /* Rojo */
+    }
+    10% {
+        background-color: rgb(156, 36, 56); /* Rojo */
+    }
+    20% {
+        background-color: rgb(251, 251, 123); /* Amarillo */
+    }
+    30% {
+        background-color: rgb(34, 196, 153); /* Amarillo */
+    }
+    40% {
+        background-color: rgb(180, 180, 255); /* Azul claro */
+    }
+    50% {
+        background-color: rgb(160, 208, 126); /* Azul claro */
+    }
+    60% {
+        background-color: rgb(129, 255, 129); /* Verde */
+    }
+    70% {
+        background-color: rgb(247, 70, 220); /* Verde */
+    }
+    80% {
+        background-color: rgb(255, 202, 103); /* Naranja */
+    }
+    90% {
+        background-color: rgb(131, 229, 231); /* Naranja */
+    }
+    100% {
+        background-color: rgb(254, 94, 94); /* Rojo */
+    }
+}
+
+div.centro{
+    padding: 20px;
+    width: auto;
+    height: 30%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(205, 205, 205);
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0px 10px 20px 20px rgb(212, 250, 163);
+}
+h1.titulo{
+    margin: 0 auto;
+    font-size: 60px;
+    
+}
+button.inicio{
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+
+.btn-inicio {
+    margin: 0 auto;
+    margin-top: 20px;
+    --primary: 255, 90, 120;
+    --secondary: 150, 50, 60;
+    width: 60px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    outline: 10px solid rgb(var(--primary), .5);
+    border-radius: 100%;
+    position: relative;
+    transition: .3s;
+  }
+  
+  .btn-inicio .back {
+    background: rgb(var(--secondary));
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn-inicio .front {
+    background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
+    box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid rgb(var(--secondary));
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: inherit;
+    transform: translateY(-15%);
+    transition: .15s;
+    color: rgb(var(--secondary));
+  }
+  
+  .btn-inicio:active .front {
+    transform: translateY(0%);
+    box-shadow: 0 0;
+  }
+
+  #carga{
+    font-size: 40px;
+    margin-left: 10px;
+  }
+
+/*Pantalla de carga*/
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.80); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+    color: white;
+    font-size: 2em;
+    display: none; /* Inicialmente está oculto */
+  }
+  
+  /* Estilo del spinner (circulito que gira) */
+  .spinner {
+    border: 8px solid rgb(203, 203, 203);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg) }
+  }
+  /*Pantalla de carga FIN*/

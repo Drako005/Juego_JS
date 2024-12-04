@@ -1,0 +1,237 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+div.general{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+   /* background-color: rgb(185, 237, 254); */
+   background: rgb(0,0,0);
+   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(248, 63, 63) 100%);
+}
+
+
+div.titulo{
+    margin: 0;
+    animation: botar 1.5s ease infinite;
+}
+@keyframes botar {
+    0%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+}
+
+
+h1{
+    font-size: 60px;
+    color: rgb(205, 205, 205);
+    text-shadow: 5px 3px #be5010;
+    margin: 0;
+}
+
+div.personajes_todos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+div.personaje{
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 70vh;
+    background-color: rgb(195, 195, 195);
+    border-radius: 20px;
+    border: 3px solid black;
+    margin: 10px;
+    
+}
+div.personaje{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    /* opacity: .7; */
+    filter: contrast(60%);
+    transition: 0.25s ease;
+    padding: 10px;
+}
+div.personaje:hover{
+    opacity: 1;
+    transform: scale(1.05);
+    filter: contrast(110%);
+}
+
+h2.ozuna{
+    color: rgb(128, 0, 0);
+}
+h2.shrek{
+    color: green;
+}
+h2.pablo{
+    color: rgb(94, 20, 155);
+}
+h2.walter{
+    color: rgb(78, 75, 8);
+}
+
+
+img.foto_personaje{
+    max-width: 80%;
+    height: 50%;
+    border-radius: 20px;
+}
+.foto_ozuna{
+    filter: drop-shadow(0px 0px 10px  #6e0303);
+}
+.foto_shrek{
+    filter: drop-shadow(0px 0px 10px  #0fb82e);
+}
+.foto_pablo{
+    filter: drop-shadow(0px 0px 10px  #8a0fba);
+}
+.foto_walter{
+    filter: drop-shadow(0px 0px 10px  #c5c511);
+}
+
+.estadisticas{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.foto_corazon{
+    max-width: 30px;
+}
+.foto_espada{
+    max-width: 30px;
+}
+
+
+button.boton{
+    height: 10%;
+    width: 50%;
+    border: none;
+    border-radius: 10em;
+    font-size: 2vw;
+    color: #ffffff;
+    font-family: inherit;
+
+}
+.ozuna_boton{
+    background-image: linear-gradient(
+        80deg,
+        rgb(128, 0, 0),
+        rgba(0, 0, 0, 0.8),
+        rgb(128, 0, 0)
+    );
+}
+.boton_shrek {
+    background-image: linear-gradient(
+        80deg,
+        #0fb82e,
+        rgba(0, 0, 0, 0.8),
+        #0fb82e    
+        );
+}
+.boton_pablo {
+    background-image: linear-gradient(
+        80deg,
+        #8a0fba,
+        rgba(0, 0, 0, 0.8),
+        #8a0fba    
+        );
+}
+.boton_walter {
+    background-image: linear-gradient(
+        80deg,
+        #c5c511,
+        rgba(0, 0, 0, 0.8),
+        #c5c511    
+        );
+}
+   
+   button.boton:hover {
+    animation: animar 0.3s linear infinite both;
+    cursor:pointer;
+   }
+   
+   @keyframes animar {
+    0% {
+     -webkit-transform: translate(0);
+     transform: translate(0);
+    }
+   
+    20% {
+     -webkit-transform: translate(-2px, 2px);
+     transform: translate(-2px, 2px);
+    }
+   
+    40% {
+     -webkit-transform: translate(-2px, -2px);
+     transform: translate(-2px, -2px);
+    }
+   
+    60% {
+     -webkit-transform: translate(2px, 2px);
+     transform: translate(2px, 2px);
+    }
+   
+    80% {
+     -webkit-transform: translate(2px, -2px);
+     transform: translate(2px, -2px);
+    }
+   
+    100% {
+     -webkit-transform: translate(0);
+     transform: translate(0);
+    }
+   }
+
+   span.negrita{
+    font-weight: 1000;
+   }
+   
+   /*Pantalla de carga*/
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.80); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+    color: white;
+    font-size: 2em;
+    display: none; /* Inicialmente está oculto */
+  }
+  
+  /* Estilo del spinner (circulito que gira) */
+  .spinner {
+    border: 8px solid rgb(203, 203, 203);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg) }
+  }
+  /*Pantalla de carga FIN*/
+
+ 
