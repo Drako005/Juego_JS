@@ -4,3 +4,97 @@ body, html{
     padding: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+div.general{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+   /* background-color: rgb(185, 237, 254); */
+
+}
+div.combate{
+    padding: 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 255, 0.184);
+}
+
+div.personaje{
+    width: 30vw;
+    height:1;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.285);
+}
+div.personajeEnemigo{
+
+}
+
+
+
+img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
+    margin: 0 auto; 
+}
+
+.barra-vida {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 300px;  
+    height: 30px; 
+    border: 3px solid #000000;  /* Borde alrededor de la barra */
+    background-color: #ddd;  /* Color de fondo de la barra (vacía) */
+    border-radius: 10px;  /* Bordes redondeados */
+    overflow: hidden;  /* Para que el contenido no se salga */
+  }
+  
+  /* Estilo del nivel de vida */
+  .nivel-vida {
+    height: 100%;  
+    width: 100%;  
+    background-color: rgb(6, 215, 6);  
+    transition: width 0.3s ease;  
+    display: flex;
+    align-items: center;
+    
+  }
+  div.habilidades{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  button.botonHabilidad{
+    cursor: pointer;
+    max-width: 60px;
+  }
+
+  /*Boton de ataque*/
+  button.botonAtacar{
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff5733;
+    border: 3px solid #e03e29;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+  }
+  button.botonAtacar:hover{
+    
+    background-color: #e03e29;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 87, 51, 0.8);
+    transform: scale(1.3);
+  }
