@@ -8,7 +8,50 @@
     <link rel="icon" href="../fotos/icono.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Pagina de juego</h1>
-    <h2>En obras🚧👷🚧</h2>
+    <div class="general">
+        <h1>MEME WARS</h1>
+        <h2 class="personajesBatalla">Personaje1 vs Personaje2</h2>
+        <div class="combate">
+            <!--Jugador-->
+            <div class="personaje" id="personajeContenedor">
+                
+                <div class="barra-vida">
+                    <div class="nivel-vida" id="nivel-vida">100%</div>
+                </div>
+
+                <h2 class="nombrePersonaje"></h2>
+                <img class="fotoPersonaje">
+                <div class="habilidades">
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
+                    <button class="botonHabilidad"><img src="../fotos/corazon_vida.png"></button>
+                </div>
+                <button class="botonAtacar" id="botonAtacar">Atacar</button>
+            </div>
+
+            <!--Enemigo-->
+            <div class="personaje personajeEnemigo">
+                <div class="barra-vida vida-enemigo">
+                    <div class="nivel-vida" id="nivel-vida">100%</div>
+                </div>
+
+                <h2 class="nombreEnemigo"></h2>
+                <img class="fotoEnemigo">
+    
+                
+                    
+
+               
+            </div>
+
+        </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="../js/script_logica.js"></script>
 </body>
 </html>
