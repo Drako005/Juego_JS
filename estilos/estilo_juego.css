@@ -3,6 +3,7 @@ body, html{
     margin: 0;
     padding: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 div.general{
@@ -10,52 +11,113 @@ div.general{
     display: flex;
     flex-direction: column;
     text-align: center;
-   /* background-color: rgb(185, 237, 254); */
-
+   
 }
 div.combate{
-    padding: 20px;
     display: flex;
     flex: 1;
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
-    background-color: rgba(0, 0, 255, 0.184);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(248, 63, 63) 100%);
 }
 
 div.personaje{
-    width: 30vw;
+    width: 25vw;
     height:1;
     min-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 0, 0, 0.285);
+    background-color: rgb(215, 215, 215);
+    margin: 0 40px;
+    border: 8px solid rgb(255, 255, 255);
+    border-radius: 30px;
+}
+img.fotoPersonaje{
+  width: auto;
+  max-height: 300px;
+  border-radius: 20px;
+  filter: drop-shadow(0px 0px 10px gold);
+}
+img.fotoEnemigo{
+  width: auto;
+  max-height: 300px;
+    border-radius: 20px;
+    filter: drop-shadow(0px 0px 10px rgb(158, 0, 0));
+
 }
 div.personajeEnemigo{
 
 }
+div.cabecera{
+  color:white;
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 10vh;
+}
+div.cabecera h1{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+div.cabecera button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  all: unset;
+  cursor: pointer;
+  background-color: rgb(140, 234, 255);
+  border-radius: 50%;
+}
+.foto_ayuda{
+  max-width: 50px;
+  height: auto;
+  display: block;
+  transition: 0.2s ease;
+  border: 2px solid rgb(140, 234, 255);
+  border-radius: 50%;
+}
+.foto_ayuda:hover{
+  transform: scale(1.3);
+  display: block;
+}
+div.cabecera a{
+  all:unset;
+  cursor: pointer;
+  font-size: 80px;
+  transition: 0.4s ease;
+}
+div.cabecera a:hover{
+  transform: scale(1.2) rotateZ(5deg) translate(3px,3px);
+}
 
 
-
-img{
+img.habilidades{
     width: 100%;
     max-width: 300px;
     height: auto;
     max-height: 300px;
     margin: 0 auto; 
+    
 }
 
 .barra-vida {
     margin: 0 auto;
     margin-top: 10px;
-    width: 300px;  
+    width: 90%; 
     height: 30px; 
-    border: 3px solid #000000;  /* Borde alrededor de la barra */
-    background-color: #ddd;  /* Color de fondo de la barra (vacía) */
-    border-radius: 10px;  /* Bordes redondeados */
-    overflow: hidden;  /* Para que el contenido no se salga */
+    border: 3px solid #000000;  
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(249,0,0,1) 100%);
+    border-radius: 10px;  
+    overflow: hidden; 
   }
+
   
   /* Estilo del nivel de vida */
   .nivel-vida {
@@ -76,6 +138,8 @@ img{
   button.botonHabilidad{
     cursor: pointer;
     max-width: 60px;
+    border: 4px solid rgb(255, 255, 255);
+    margin: 2px;
   }
 
   /*Boton de ataque*/
@@ -92,9 +156,91 @@ img{
     transition: all 0.4s ease;
   }
   button.botonAtacar:hover{
-    
     background-color: #e03e29;
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(255, 87, 51, 0.8);
     transform: scale(1.3);
   }
+
+  div.popup_titulo{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #popup {
+    text-align: center;
+    font-size: 20px;
+    display: none;
+    width: 400px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 3;
+  }
+  #popup ul{
+    text-align: left;
+    list-style-type: disc;
+  }
+  #popup-pantalla {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  }
+
+  .botonCerrar {
+    font-size: 18px;
+    height: 40px;
+    width: auto;
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .botonCerrar:hover {
+    background: #d32f2f;
+  }
+
+  div.nombres_personajes{
+    background-color: gray;
+  }
+  span.texto{
+    color: white;
+    text-align: center;
+    display: block;
+    width: 100%; 
+    margin: 0 auto;
+    font-family: monospace;
+    white-space: nowrap;
+    font-size: 40px;
+    animation: escribir 2s steps(20) 1;
+    overflow: hidden;
+  }
+  
+  @keyframes escribir {
+    from {
+      width: 0;
+
+    }
+    to {
+      width: 50%;
+
+    }
+  }
+
+  
