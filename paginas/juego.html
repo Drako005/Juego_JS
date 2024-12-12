@@ -9,49 +9,62 @@
 </head>
 <body>
     <div class="general">
-        <h1>MEME WARS</h1>
-        <h2 class="personajesBatalla">Personaje1 vs Personaje2</h2>
+        <div class="cabecera">
+            <a href="personajes.html">&#8617;</a>
+            <h1>MEME WARS</h1>
+            <button onclick="mostrarReglas()"><img src="../fotos/ayuda_icono.png" class="foto_ayuda"></button>
+        </div>
+
+        <div id="popup-pantalla" onclick="esconderReglas()"></div>
+            <div id="popup">
+            <div class="popup_titulo">
+                <h2>Reglas del Juego</h2>
+                <button class="botonCerrar" onclick="esconderReglas()">Cerrar</button>
+            </div>
+            <ul>
+            <li>Este es un juego de combate por turnos.</li>
+            <li>El objetivo es eliminar al personaje enemigo.</li>
+            <li>Cada personaje tiene 4 habilidades (MEMES), 3 de ataque y 1 de recuperar vida.</li>
+            <li>Selecciona tu ataque, haz clic en atacar. Después el enemigo te atacará.</li>
+            </ul>  
+            <p><br> ¡Buena suerte!</p>
+            </div>
+
+            <div class="nombres_personajes">
+            <span class="texto personajesBatalla">Personaje1 vs Personaje2</span>
+            </div>
         <div class="combate">
             <!--Jugador-->
             <div class="personaje" id="personajeContenedor">
                 
                 <div class="barra-vida">
-                    <div class="nivel-vida" id="nivel-vida">100%</div>
+                    <div class="nivel-vida" id="nivel-vida-personaje">100</div>
                 </div>
 
                 <h2 class="nombrePersonaje"></h2>
                 <img class="fotoPersonaje">
                 <div class="habilidades">
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png"></button>
-                    <button class="botonHabilidad"><img src="../fotos/corazon_vida.png"></button>
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad"><img src="../fotos/corazon_vida.png" class="habilidades"></button>
                 </div>
+                <span class="nombreAtaque">Selecciona Habilidad</span>
                 <button class="botonAtacar" id="botonAtacar">Atacar</button>
             </div>
 
             <!--Enemigo-->
             <div class="personaje personajeEnemigo">
                 <div class="barra-vida vida-enemigo">
-                    <div class="nivel-vida" id="nivel-vida">100%</div>
+                    <div class="nivel-vida" id="nivel-vida-enemigo">100</div>
                 </div>
 
                 <h2 class="nombreEnemigo"></h2>
-                <img class="fotoEnemigo">
-    
-                
-                    
-
-               
+                <img class="fotoEnemigo">  
             </div>
-
         </div>
-
-
         </div>
     </div>
-
-
     <script src="../js/script_logica.js"></script>
 </body>
 </html>
