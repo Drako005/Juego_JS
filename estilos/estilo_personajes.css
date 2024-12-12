@@ -3,6 +3,7 @@ body, html{
     margin: 0;
     padding: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    user-select: none;
 }
 
 div.general{
@@ -14,7 +15,6 @@ div.general{
    background: rgb(0,0,0);
    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(248, 63, 63) 100%);
 }
-
 
 div.titulo{
     margin: 0;
@@ -31,7 +31,6 @@ div.titulo{
         transform: translateY(10px);
     }
 }
-
 
 h1{
     font-size: 60px;
@@ -87,7 +86,6 @@ h2.walter{
     color: rgb(78, 75, 8);
 }
 
-
 img.foto_personaje{
     max-width: 80%;
     height: 50%;
@@ -116,8 +114,8 @@ img.foto_personaje{
 }
 .foto_espada{
     max-width: 30px;
+    margin-left: 5px;
 }
-
 
 button.boton{
     height: 10%;
@@ -127,7 +125,6 @@ button.boton{
     font-size: 2vw;
     color: #ffffff;
     font-family: inherit;
-
 }
 .ozuna_boton{
     background-image: linear-gradient(
@@ -233,5 +230,4 @@ button.boton{
     to { transform: rotate(360deg) }
   }
   /*Pantalla de carga FIN*/
-
  
