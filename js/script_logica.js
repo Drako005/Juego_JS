@@ -1,7 +1,6 @@
 // Pantalla de carga
 function seleccionarPersonaje(boton) {
     localStorage.setItem('personajeSeleccionado', boton);
-    
   }
 
 document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
@@ -25,7 +24,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
     ozuna: {
         imagen: '../fotos/ozuna_elegir.png',
         nombre: "Ozuna",
-        vida: 90,
+        vida: 100,
         habilidades: [
             { img: '../fotos/espada_daño.png', alt: 'La Fórmula', accion: 'ataque1ozuna'},
             { img: '../fotos/corazon_vida.png', alt: 'Moraleja', accion: 'ataque2ozuna'},
@@ -36,7 +35,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
     shrek: {
         imagen: '../fotos/shrek_elegir.png',
         nombre: "Shrek",
-        vida: 130,
+        vida: 150,
         habilidades: [
             { img: '../fotos/espada_daño.png', alt: 'Huevo Duro', accion: 'ataque1shrek'},
             { img: '../fotos/corazon_vida.png', alt: 'Graznido de Asno', accion: 'ataque2shrek'},
@@ -47,7 +46,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
     pablo: {
         imagen: '../fotos/pablo_elegir.png',
         nombre: "Pablo Motos",
-        vida: 110,
+        vida: 125,
         habilidades: [
             { img: '../fotos/espada_daño.png', alt: 'Ataque Yoga', accion: 'ataque1pablo'},
             { img: '../fotos/corazon_vida.png', alt: 'Pregunta Incómoda', accion: 'ataque2pablo'},
@@ -58,7 +57,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
     walter: {
         imagen: '../fotos/walter_elegir.png',
         nombre: "Walter",
-        vida: 75,
+        vida: 100,
         habilidades: [
             { img: '../fotos/espada_daño.png', alt: 'Ataque Cristal', accion: 'ataque1walter'},
             { img: '../fotos/corazon_vida.png', alt: 'Ataque Gorro', accion: 'ataque2walter'},
@@ -67,6 +66,8 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         ]
     }
 };
+const personajesArray = Object.keys(personajes);
+let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
   window.addEventListener('load', function() {
     const personaje = localStorage.getItem('personajeSeleccionado');
     const imgElemento = document.querySelector('.fotoPersonaje');
@@ -112,8 +113,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
     }
 
     //Enemigo aleatorio
-    const personajesArray = Object.keys(personajes);
-    let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
+   
 
     while (enemigoAleatorio === personaje) {
         enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
@@ -146,7 +146,17 @@ btnAtacar.addEventListener('mouseout', () => {
 
 btnAtacar.addEventListener('click', function() {
     if (habilidadSeleccionada) {
-        ejecutarAccion(habilidadSeleccionada.accion); 
+        ejecutarAccion(habilidadSeleccionada.accion);
+        const enemigo = personajes[enemigoAleatorio];
+
+        if (enemigo) {
+            // Elegimos una habilidad al azar de las habilidades del enemigo
+            let habilidadRandom = enemigo.habilidades[
+                Math.floor(Math.random() * enemigo.habilidades.length)
+            ];           
+            // Ejecutamos esa habilidad seleccionada al azar
+            ejecutarRespuesta(habilidadRandom.accion);
+        }
     } else {
         alert("Por favor, selecciona un ataque primero.");
     }
@@ -168,84 +178,177 @@ function mostrarReglas() {
         //OZUNA ATAQUES
         case 'ataque1ozuna':
             vidaEnemigo -= 10;
-            
-            break;
+        break;
         case 'ataque2ozuna':
-        alert("ataque 2 ozuna");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque3ozuna':
-        alert("ataque 3 ozuna");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque4ozuna':
-        alert("ataque 4 ozuna");
+            if (vidaJugador < 100){
+                vidaJugador += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
         break;
 
         //SHREK ATAQUES
         case 'ataque1shrek':
-            alert("ataque 1 shrek");
+            vidaEnemigo -= 10;
             break;
         case 'ataque2shrek':
-        alert("ataque 2 shrek");
+            vidaEnemigo -= 10;
         break;
 
         case 'ataque3shrek':
-        alert("ataque 3 shrek");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque4shrek':
-        alert("ataque 4 shrek");
+            if (vidaJugador < 100){
+                vidaJugador += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
         break;
 
         //PABLO ATAQUES
         case 'ataque1pablo':
-            alert("ataque 1 pablo");
+            vidaEnemigo -= 10;
             break;
         case 'ataque2pablo':
-        alert("ataque 2 pablo");
+            vidaEnemigo -= 10;
         break;
 
         case 'ataque3pablo':
-        alert("ataque 3 pablo");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque4pablo':
-        alert("ataque 4 pablo");
+            if (vidaJugador < 100){
+                vidaJugador += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
         break;
 
         //WALTER ATAQUES
         case 'ataque1walter':
-            alert("ataque 1 walter");
+            vidaEnemigo -= 10;
             break;
         case 'ataque2walter':
-        alert("ataque 2 walter");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque3walter':
-        alert("ataque 3 walter");
+            vidaEnemigo -= 10;
         break;
-
         case 'ataque4walter':
-        alert("ataque 4 walter");
+            if (vidaJugador < 100){
+                vidaJugador += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
         break;
     }
     actualizarBarrasDeVida();
   }
 
-function actualizarBarrasDeVida() {
+  //Ataque enemigo (Respuesta)
+  function ejecutarRespuesta(accion1){
+    switch(accion1){
+        //OZUNA ATAQUES
+        case 'ataque1ozuna':
+            vidaJugador -= 10;
+        break;
+        case 'ataque2ozuna':
+            vidaJugador -= 10;
+        break;
+        case 'ataque3ozuna':
+            vidaJugador -= 10;
+        break;
+        case 'ataque4ozuna':
+            if (vidaEnemigo < 100){
+                vidaEnemigo += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
+        break;
+
+        //SHREK ATAQUES
+        case 'ataque1shrek':
+            vidaJugador -= 10;
+            break;
+        case 'ataque2shrek':
+            vidaJugador -= 10;
+        break;
+
+        case 'ataque3shrek':
+            vidaJugador -= 10;
+        break;
+        case 'ataque4shrek':
+            if (vidaEnemigo < 100){
+                vidaEnemigo += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
+        break;
+
+        //PABLO ATAQUES
+        case 'ataque1pablo':
+            vidaJugador -= 10;
+            break;
+        case 'ataque2pablo':
+            vidaJugador -= 10;
+        break;
+
+        case 'ataque3pablo':
+            vidaJugador -= 10;
+        break;
+        case 'ataque4pablo':
+            if (vidaEnemigo < 100){
+                vidaEnemigo += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
+        break;
+
+        //WALTER ATAQUES
+        case 'ataque1walter':
+            vidaJugador -= 10;
+            break;
+        case 'ataque2walter':
+            vidaJugador -= 10;
+        break;
+        case 'ataque3walter':
+            vidaJugador -= 10;
+        break;
+        case 'ataque4walter':
+            if (vidaEnemigo < 100){
+                vidaEnemigo += 10;
+            }else{
+                alert("Tienes demasiada vida.");
+            }
+        break;
+    }
+    actualizarBarrasDeVida();
+  }
+
+  function actualizarBarrasDeVida() {
     const barraVidaJugador = document.querySelector('#nivel-vida-personaje'); // Barra del jugador
     const barraVidaEnemigo = document.querySelector('#nivel-vida-enemigo');   // Barra del enemigo
 
-    // Actualizar la barra del jugador
-    barraVidaJugador.style.width = Math.max(0, vidaJugador) + '%';
+    // Calcular el porcentaje de vida para el jugador y el enemigo
+    const porcentajeVidaJugador = (vidaJugador / personajes[localStorage.getItem('personajeSeleccionado')].vida) * 100;
+    const porcentajeVidaEnemigo = (vidaEnemigo / personajes[enemigoAleatorio].vida) * 100;
+
+    // Actualizar la barra de vida del jugador
+    barraVidaJugador.style.width = porcentajeVidaJugador + '%';
     barraVidaJugador.textContent = Math.max(0, vidaJugador);
 
-    // Actualizar la barra del enemigo
-    barraVidaEnemigo.style.width = Math.max(0, vidaEnemigo) + '%';
+    // Actualizar la barra de vida del enemigo
+    barraVidaEnemigo.style.width = porcentajeVidaEnemigo + '%';
     barraVidaEnemigo.textContent = Math.max(0, vidaEnemigo);
 
-    // Verificar condiciones de victoria/derrota
+    // Verificar si alguien ha ganado o perdido
     if (vidaJugador <= 0) {
         alert("¡Has perdido! El jugador ha muerto.");
         reiniciarJuego(); // Opcional: reinicia el juego
@@ -258,4 +361,3 @@ function actualizarBarrasDeVida() {
 function reiniciarJuego() {
     window.location.href = '../paginas/juego.html';
 }
-
