@@ -252,7 +252,8 @@ textarea{
   background-color: rgb(215, 215, 215);
   border-radius: 30px;
   user-select: none;
+  padding: 15px;
+  overflow: hidden;
+  color: black;
+  font-size: 16px;
 }
-  
-
-  
