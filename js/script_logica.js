@@ -187,7 +187,7 @@ function mostrarReglas() {
   function ejecutarAccion(accion){
     let probabilidad = Math.random();
     switch(accion){
-
+        //REVISAR VARIABLE PROBABILIDAD POR FALLOS CON LOS ATAQUES 2 DE TODOS MENOS OZUNA
         //OZUNA ATAQUES
         case 'ataque1ozuna':
             vidaEnemigo -= 15;
