@@ -245,6 +245,14 @@
     }
   }
 
+textarea{
+  height: 70vh;
+  width: 20vw;
+  resize: none;
+  background-color: rgb(215, 215, 215);
+  border-radius: 30px;
+  user-select: none;
+}
   
 
   
