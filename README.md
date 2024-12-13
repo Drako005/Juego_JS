@@ -1,2 +1,2 @@
 # Juego_JS
-<p>Open Beta 1.1: </p><a href="https://drako005.github.io/Juego_JS/">Jugar</a>
+<span>Open Beta 1.1: </span><a href="https://drako005.github.io/Juego_JS/">Jugar</a>
