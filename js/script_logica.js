@@ -66,6 +66,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         ]
     }
 };
+
 const personajesArray = Object.keys(personajes);
 let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
   window.addEventListener('load', function() {
@@ -78,8 +79,7 @@ let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArra
     const barraVidaJugador = document.querySelector('#nivel-vida-personaje');
     const barraVidaEnemigo = document.querySelector('#nivel-vida-enemigo');
 
-    
-    
+
     if (personaje && personajes[personaje]) {
         vidaJugador = personajes[personaje].vida;
         vidaEnemigo = 100;
@@ -114,7 +114,6 @@ let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArra
 
     //Enemigo aleatorio
    
-
     while (enemigoAleatorio === personaje) {
         enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
     }
@@ -160,6 +159,7 @@ btnAtacar.addEventListener('click', function() {
     } else {
         alert("Por favor, selecciona un ataque primero.");
     }
+    comprobarVida();
 });
 
 function mostrarReglas() {
@@ -172,84 +172,88 @@ function mostrarReglas() {
     document.getElementById('popup-pantalla').style.display = 'none';
   }
 
-
   function ejecutarAccion(accion){
+    let probabilidad = Math.random();
     switch(accion){
+
         //OZUNA ATAQUES
         case 'ataque1ozuna':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= 15;
         break;
         case 'ataque2ozuna':
             vidaEnemigo -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.25) {
+                vidaEnemigo -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
         case 'ataque3ozuna':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= (vidaEnemigo * 0.17);
         break;
         case 'ataque4ozuna':
-            if (vidaJugador < 100){
-                vidaJugador += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaJugador += (100 - vidaJugador)*0.3;
         break;
 
         //SHREK ATAQUES
         case 'ataque1shrek':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= 15;
             break;
         case 'ataque2shrek':
             vidaEnemigo -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.20) {
+                vidaEnemigo -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
-
         case 'ataque3shrek':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= (vidaEnemigo * 0.13);
         break;
         case 'ataque4shrek':
-            if (vidaJugador < 100){
-                vidaJugador += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaJugador += (150 - vidaJugador)*0.2;
         break;
 
         //PABLO ATAQUES
         case 'ataque1pablo':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= 15;
             break;
         case 'ataque2pablo':
             vidaEnemigo -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.22) {
+                vidaEnemigo -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
-
         case 'ataque3pablo':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= (vidaEnemigo * 0.15);
         break;
         case 'ataque4pablo':
-            if (vidaJugador < 100){
-                vidaJugador += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaJugador += (125 - vidaJugador)*0.25;
         break;
 
         //WALTER ATAQUES
         case 'ataque1walter':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= 15;
             break;
         case 'ataque2walter':
             vidaEnemigo -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.30) {
+                vidaEnemigo -= 12;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
         case 'ataque3walter':
-            vidaEnemigo -= 10;
+            vidaEnemigo -= (vidaEnemigo * 0.18);
         break;
         case 'ataque4walter':
-            if (vidaJugador < 100){
-                vidaJugador += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaJugador += (100 - vidaJugador)*0.25;
         break;
     }
     actualizarBarrasDeVida();
+    
   }
 
   //Ataque enemigo (Respuesta)
@@ -257,79 +261,82 @@ function mostrarReglas() {
     switch(accion1){
         //OZUNA ATAQUES
         case 'ataque1ozuna':
-            vidaJugador -= 10;
+            vidaJugador -= 15;
         break;
         case 'ataque2ozuna':
             vidaJugador -= 10;
+            let probabilidad = Math.random();
+            if (probabilidad <= 0.25) {
+                vidaJugador -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
         case 'ataque3ozuna':
-            vidaJugador -= 10;
+            vidaJugador -= (vidaJugador * 0.15);
         break;
         case 'ataque4ozuna':
-            if (vidaEnemigo < 100){
-                vidaEnemigo += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaEnemigo += (100 - vidaEnemigo)*0.3;
         break;
 
         //SHREK ATAQUES
-        case 'ataque1shrek':
-            vidaJugador -= 10;
+         case 'ataque1shrek':
+            vidaJugador -= 15;
             break;
         case 'ataque2shrek':
             vidaJugador -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.20) {
+                vidaJugador -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
-
         case 'ataque3shrek':
-            vidaJugador -= 10;
+            vidaJugador -= (vidaJugador * 0.13);
         break;
         case 'ataque4shrek':
-            if (vidaEnemigo < 100){
-                vidaEnemigo += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaEnemigo += (150 - vidaEnemigo)*0.2;
         break;
 
         //PABLO ATAQUES
         case 'ataque1pablo':
-            vidaJugador -= 10;
+            vidaJugador -= 15;
             break;
         case 'ataque2pablo':
             vidaJugador -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.22) {
+                vidaJugador -= 10;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
-
         case 'ataque3pablo':
-            vidaJugador -= 10;
+            vidaJugador -= (vidaJugador * 0.15);
         break;
         case 'ataque4pablo':
-            if (vidaEnemigo < 100){
-                vidaEnemigo += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaEnemigo += (125 - vidaEnemigo)*0.25;
         break;
 
         //WALTER ATAQUES
         case 'ataque1walter':
-            vidaJugador -= 10;
+            vidaJugador -= 15;
             break;
         case 'ataque2walter':
             vidaJugador -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.30) {
+                vidaJugador -= 12;
+                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+            }
         break;
         case 'ataque3walter':
-            vidaJugador -= 10;
+            vidaJugador -= (vidaJugador * 0.18);
         break;
         case 'ataque4walter':
-            if (vidaEnemigo < 100){
-                vidaEnemigo += 10;
-            }else{
-                alert("Tienes demasiada vida.");
-            }
+            vidaEnemigo += (100 - vidaEnemigo)*0.25;
         break;
     }
     actualizarBarrasDeVida();
+    
   }
 
   function actualizarBarrasDeVida() {
@@ -342,14 +349,16 @@ function mostrarReglas() {
 
     // Actualizar la barra de vida del jugador
     barraVidaJugador.style.width = porcentajeVidaJugador + '%';
-    barraVidaJugador.textContent = Math.max(0, vidaJugador);
+    barraVidaJugador.textContent = Math.round(vidaJugador);
 
     // Actualizar la barra de vida del enemigo
     barraVidaEnemigo.style.width = porcentajeVidaEnemigo + '%';
-    barraVidaEnemigo.textContent = Math.max(0, vidaEnemigo);
+    barraVidaEnemigo.textContent = Math.round(vidaEnemigo);
+}
 
-    // Verificar si alguien ha ganado o perdido
-    if (vidaJugador <= 0) {
+function comprobarVida(){
+     // Verificar si alguien ha ganado o perdido
+     if (vidaJugador <= 0) {
         alert("¡Has perdido! El jugador ha muerto.");
         reiniciarJuego(); // Opcional: reinicia el juego
     } else if (vidaEnemigo <= 0) {
