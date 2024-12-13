@@ -68,9 +68,11 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
 };
 
 const personajesArray = Object.keys(personajes);
+const personaje = localStorage.getItem('personajeSeleccionado');
+//PONER LOS NOMBRES DE LOS 2 EN EL LOG
 let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
   window.addEventListener('load', function() {
-    const personaje = localStorage.getItem('personajeSeleccionado');
+    //Aqui estaba declarado personaje
     const imgElemento = document.querySelector('.fotoPersonaje');
     const h2Elemento = this.document.querySelector('.nombrePersonaje');
     const titulo = this.document.querySelector('.personajesBatalla');
@@ -119,7 +121,7 @@ let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArra
     }
 
     const imgEnemigo = document.querySelector('.fotoEnemigo');
-    const h2Enemigo = document.querySelector('.nombreEnemigo');
+    h2Enemigo = document.querySelector('.nombreEnemigo');
     vidaEnemigo = personajes[enemigoAleatorio].vida;
 
     imgEnemigo.src = personajes[enemigoAleatorio].imagen;
@@ -143,24 +145,34 @@ btnAtacar.addEventListener('mouseout', () => {
     btnAtacar.textContent = 'Atacar'; 
 });
 
+
 btnAtacar.addEventListener('click', function() {
     if (habilidadSeleccionada) {
-        ejecutarAccion(habilidadSeleccionada.accion);
+        ejecutarAccion(habilidadSeleccionada.accion); // Ejecuta el ataque del jugador
         const enemigo = personajes[enemigoAleatorio];
 
         if (enemigo) {
             // Elegimos una habilidad al azar de las habilidades del enemigo
             let habilidadRandom = enemigo.habilidades[
                 Math.floor(Math.random() * enemigo.habilidades.length)
-            ];           
+                
+            ];
             // Ejecutamos esa habilidad seleccionada al azar
             ejecutarRespuesta(habilidadRandom.accion);
+
+            // Añadimos el ataque del enemigo al log
+            document.getElementById('logBatalla').innerHTML += 
+                    personaje+": "+habilidadSeleccionada.alt+"\n"+
+                    "Enemigo: "+habilidadRandom.alt+"\n\n";
+                    const logBatalla = document.getElementById('logBatalla');
+                    logBatalla.scrollTop = logBatalla.scrollHeight;
         }
     } else {
         alert("Por favor, selecciona un ataque primero.");
     }
     comprobarVida();
 });
+
 
 function mostrarReglas() {
     document.getElementById('popup').style.display = 'block';
