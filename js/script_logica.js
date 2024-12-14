@@ -66,13 +66,14 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         ]
     }
 };
-
+let turnos = 0;
 const personajesArray = Object.keys(personajes);
 const personaje = localStorage.getItem('personajeSeleccionado');
 //PONER LOS NOMBRES DE LOS 2 EN EL LOG
 let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
   window.addEventListener('load', function() {
     //Aqui estaba declarado personaje
+    
     const imgElemento = document.querySelector('.fotoPersonaje');
     const h2Elemento = this.document.querySelector('.nombrePersonaje');
     const titulo = this.document.querySelector('.personajesBatalla');
@@ -159,14 +160,16 @@ btnAtacar.addEventListener('click', function() {
             ];
             // Ejecutamos esa habilidad seleccionada al azar
             ejecutarRespuesta(habilidadRandom.accion);
-
+            turnos++;
             // Añadimos el ataque del enemigo al log
             document.getElementById('logBatalla').innerHTML += 
-                    personaje+": "+habilidadSeleccionada.alt+"\n"+
-                    "Enemigo: "+habilidadRandom.alt+"\n\n";
+                    "Turno "+turnos+"\n"+
+                    personajes[personaje].nombre+": "+habilidadSeleccionada.alt+"\n"+
+                    personajes[enemigoAleatorio].nombre+": "+habilidadRandom.alt+"\n\n";
                     const logBatalla = document.getElementById('logBatalla');
                     logBatalla.scrollTop = logBatalla.scrollHeight;
         }
+        
     } else {
         alert("Por favor, selecciona un ataque primero.");
     }
@@ -270,6 +273,7 @@ function mostrarReglas() {
 
   //Ataque enemigo (Respuesta)
   function ejecutarRespuesta(accion1){
+    let probabilidad = Math.random();
     switch(accion1){
         //OZUNA ATAQUES
         case 'ataque1ozuna':
@@ -277,10 +281,9 @@ function mostrarReglas() {
         break;
         case 'ataque2ozuna':
             vidaJugador -= 10;
-            let probabilidad = Math.random();
+            probabilidad = Math.random();
             if (probabilidad <= 0.25) {
                 vidaJugador -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
             }
         break;
         case 'ataque3ozuna':
@@ -299,7 +302,6 @@ function mostrarReglas() {
             probabilidad = Math.random();
             if (probabilidad <= 0.20) {
                 vidaJugador -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
             }
         break;
         case 'ataque3shrek':
@@ -318,7 +320,6 @@ function mostrarReglas() {
             probabilidad = Math.random();
             if (probabilidad <= 0.22) {
                 vidaJugador -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
             }
         break;
         case 'ataque3pablo':
@@ -337,7 +338,6 @@ function mostrarReglas() {
             probabilidad = Math.random();
             if (probabilidad <= 0.30) {
                 vidaJugador -= 12;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
             }
         break;
         case 'ataque3walter':
