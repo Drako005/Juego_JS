@@ -261,3 +261,74 @@ textarea{
 #tituloLog{
   color:whitesmoke;
 }
+
+.animacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0; /* Oculto inicialmente */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+}
+
+/* Clase que hace visible el popup */
+.animacion.show {
+  opacity: 1; /* Totalmente visible */
+  visibility: visible;
+  z-index: 1000;
+}
+
+.animacion.girar {
+  animation: girar 1s ease;
+}
+
+@keyframes girar {
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Clase que activa el pulso */
+.animacion.pulso {
+  animation: pulso 1s ease-in-out;
+}
+@keyframes pulso {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+.animacion.mover {
+  animation: mover 1s ease-in-out;
+}
+@keyframes mover {
+  0% {
+    transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(100px) translateY(50px);
+  }
+  80% {
+    transform: translate(-50%, -50%) translateX(-100px) translateY(-50px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}
+
+
+
