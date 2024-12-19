@@ -227,7 +227,9 @@ function mostrarReglas() {
             vidaEnemigo -= (vidaEnemigo * 0.17);
         break;
         case 'ataque4ozuna':
-            animacion.innerHTML = "No sé si vivir o morir, me encuentro en un limbo desde que te fuiste de aquí🤔";
+            const frases = ["No sé si vivir o morir, me encuentro en un limbo desde que te fuiste de aquí🤔", "Mi libertad, no la quiero, tampoco la vida de soltero.", "La vida te pone obstaculos, pero los limites los pones tu", "Prefiero decir por lo menos lo intenté a tuve miedo y fracasé"];
+            const random = Math.floor(Math.random() * frases.length);
+            animacion.innerHTML = frases[random];
             animacion.classList.add(animacionRandom, 'show');
             setTimeout(()=>{
                 animacion.classList.remove('show', animacionRandom);
