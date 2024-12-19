@@ -186,27 +186,52 @@ function mostrarReglas() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('popup-pantalla').style.display = 'none';
   }
-
+  
+  
   function ejecutarAccion(accion){
+    //Animaciones aleatorias
+    const animacion = document.getElementById('animacion');
+    const animaciones = ['girar', 'pulso', 'mover'];
+    const animacionRandom = animaciones[Math.floor(Math.random() * animaciones.length)];
+
     let probabilidad = Math.random();
     switch(accion){
-        //REVISAR VARIABLE PROBABILIDAD POR FALLOS CON LOS ATAQUES 2 DE TODOS MENOS OZUNA
         //OZUNA ATAQUES
         case 'ataque1ozuna':
+            // Mostrar el popup de animacion
+            animacion.innerHTML = "La Foooooormulaaa🎵🎶🎵";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 15;
         break;
         case 'ataque2ozuna':
+            animacion.innerHTML = "MORALEJA🗿";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 10;
             probabilidad = Math.random();
             if (probabilidad <= 0.25) {
                 vidaEnemigo -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
             }
         break;
         case 'ataque3ozuna':
+            animacion.innerHTML = "El negrito ojos claro'🤑";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= (vidaEnemigo * 0.17);
         break;
         case 'ataque4ozuna':
+            animacion.innerHTML = "No sé si vivir o morir, me encuentro en un limbo desde que te fuiste de aquí🤔";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaJugador += (100 - vidaJugador)*0.3;
         break;
 
@@ -273,10 +298,14 @@ function mostrarReglas() {
 
   //Ataque enemigo (Respuesta)
   function ejecutarRespuesta(accion1){
+    
     let probabilidad = Math.random();
     switch(accion1){
         //OZUNA ATAQUES
         case 'ataque1ozuna':
+            
+            
+             
             vidaJugador -= 15;
         break;
         case 'ataque2ozuna':
@@ -382,3 +411,4 @@ function comprobarVida(){
 function reiniciarJuego() {
     window.location.href = '../paginas/juego.html';
 }
+
