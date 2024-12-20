@@ -1,4 +1,5 @@
   body, html{
+    width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
@@ -34,6 +35,7 @@
       border: 8px solid rgb(255, 255, 255);
       border-radius: 30px;
   }
+  
 
   h2.nombrePersonaje{
     margin: 10px;
@@ -41,7 +43,7 @@
 
   img.fotoPersonaje{
     width: auto;
-    max-height: 50vh;
+    max-height: 40vh;
     border-radius: 20px;
     filter: drop-shadow(0px 0px 10px gold);
     animation: movimiento 2s ease infinite;
@@ -64,12 +66,16 @@
       transform: translateX(0) translateY(0); 
     }
   }
+
+
+
   img.fotoEnemigo{
     width: auto;
-    max-height: 50vh;
+    max-height: 40vh;
     border-radius: 20px;
     filter: drop-shadow(0px 0px 10px rgb(158, 0, 0));
-    animation: movimiento 2s ease infinite;
+    animation: movimiento 2s ease-in-out infinite;
+    transform-origin: center center;
   }
 
   div.cabecera{
@@ -121,14 +127,7 @@
     transform: scale(1.2) rotateZ(5deg) translate(3px,3px);
   }
 
-  img.habilidades{
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      max-height: 300px;
-      margin: 0 auto; 
-      
-  }
+  
 
   .barra-vida {
       margin: 0 auto;
@@ -159,12 +158,32 @@
       margin: 0 auto;
       margin-top: 10px;
     }
+    img.habilidades{
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      max-height: 300px;
+      margin: 0 auto; 
+  }
     button.botonHabilidad{
       cursor: pointer;
       max-width: 4vw;
       max-height: 10vh;
-      border: 4px solid rgb(255, 255, 255);
+      background-color: whitesmoke;
+      border: 4px solid black;
+      border-radius: 10px;
       margin: 2px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+    }
+    button.botonHabilidad:hover{
+      border: 4px solid rgb(200, 187, 48);
+      transform: scale(1.03);
+      
+    }
+    button.botonHabilidad:active{
+      transform: scale(0.9);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
     /*Boton de ataque*/
@@ -185,6 +204,10 @@
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(255, 87, 51, 0.8);
       transform: scale(1.2);
+    }
+    button.botonAtacar:active{
+      transform: scale(0.95);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
   div.popup_titulo{
@@ -350,5 +373,43 @@ textarea{
   }
 }
 
+.popup_cambioPartida {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0; /* Oculto inicialmente */
+  visibility: hidden;
+  transition: opacity 2s ease-in-out;
+}
 
+/* Clase que hace visible el popup */
+.popup_cambioPartida.show {
+  opacity: 1; /* Totalmente visible */
+  visibility: visible;
+  z-index: 1000;
+}
 
+.popup_cambioPartida.gana {
+  background-color: rgb(80, 146, 190);
+}
+.popup_cambioPartida.pierde {
+  background-color: rgb(190, 0, 0);
+}
+#parrafo_cambio{
+  font-size: 1.7rem;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 30vw;
+  padding: 20px;
+  height: auto;
+}
