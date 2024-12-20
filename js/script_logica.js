@@ -26,10 +26,10 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         nombre: "Ozuna",
         vida: 100,
         habilidades: [
-            { img: '../fotos/espada_daño.png', alt: 'La Fórmula', accion: 'ataque1ozuna'},
-            { img: '../fotos/corazon_vida.png', alt: 'Moraleja', accion: 'ataque2ozuna'},
-            { img: '../fotos/espada_daño.png', alt: 'Negrito Ojos Claros', accion: 'ataque3ozuna'},
-            { img: '../fotos/corazon_vida.png', alt: 'Frase Filosófica', accion: 'ataque4ozuna'}
+            { img: '../fotos/ozuna1.png', alt: 'La Fórmula', accion: 'ataque1ozuna'},
+            { img: '../fotos/ozuna2.png', alt: 'Moraleja', accion: 'ataque2ozuna'},
+            { img: '../fotos/ozuna3.png', alt: 'Negrito Ojos Claros', accion: 'ataque3ozuna'},
+            { img: '../fotos/ozuna4.png', alt: 'Frase Filosófica', accion: 'ataque4ozuna'}
         ]
     },
     shrek: {
@@ -37,7 +37,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         nombre: "Shrek",
         vida: 150,
         habilidades: [
-            { img: '../fotos/espada_daño.png', alt: 'Huevo Duro', accion: 'ataque1shrek'},
+            { img: '../fotos/shrek1.png', alt: 'Huevo Duro', accion: 'ataque1shrek'},
             { img: '../fotos/corazon_vida.png', alt: 'Graznido de Asno', accion: 'ataque2shrek'},
             { img: '../fotos/espada_daño.png', alt: 'Eructo Mortal', accion: 'ataque3shrek'},
             { img: '../fotos/corazon_vida.png', alt: 'Baño en la Ciénaga', accion: 'ataque4shrek'}
@@ -400,17 +400,28 @@ function mostrarReglas() {
 }
 
 function comprobarVida(){
+    const popup_cambioPartida = document.getElementById
+    ('popup_cambioPartida');
+    const parrafo_cambio = document.getElementById
+    ('parrafo_cambio');
      // Verificar si alguien ha ganado o perdido
      if (vidaJugador <= 0) {
-        alert("¡Has perdido! El jugador ha muerto.");
-        reiniciarJuego(); // Opcional: reinicia el juego
+        parrafo_cambio.innerHTML = "HAS PERDIDO😭😭<br>REINICIANDO PARTIDA";
+        popup_cambioPartida.classList.add('show', 'pierde');
+            setTimeout(()=>{
+                popup_cambioPartida.classList.remove('show');
+                reiniciarJuego(); 
+            }, 3500);
     } else if (vidaEnemigo <= 0) {
-        alert("¡Has ganado! El enemigo ha muerto.");
-        reiniciarJuego(); // Opcional: reinicia el juego
+        parrafo_cambio.innerHTML = "HAS GANADO🎉🎉<br>REINICIANDO PARTIDA";
+        popup_cambioPartida.classList.add('show', 'gana');
+            setTimeout(()=>{
+                popup_cambioPartida.classList.remove('show');
+                reiniciarJuego(); 
+            }, 2000);
     }
 }
 
 function reiniciarJuego() {
     window.location.href = '../paginas/juego.html';
 }
-
