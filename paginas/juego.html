@@ -24,10 +24,10 @@
             <ul>
             <li>Este es un juego de combate por turnos.</li>
             <li>El objetivo es eliminar al personaje enemigo.</li>
-            <li>Cada personaje tiene 4 habilidades (MEMES), 3 de ataque y 1 de recuperar vida.</li>
-            <li>Selecciona tu ataque, haz clic en atacar. Después el enemigo te atacará.</li>
+            <li>Cada personaje tiene 4 habilidades: <ol><li>Ataque básico.</li><li>Ataque con probabilidad de crítico.</li><li>Ataque porcentual según la vida del enemigo.</li><li>Curación.</li></ol></li>
+            <li>Selecciona tu ataque y haz clic en atacar. Después el enemigo te atacará.</li>
             </ul>  
-            <p><br> ¡Buena suerte!</p>
+            <h3>¡Buena suerte!</h3>
             </div>
 
             <div class="nombres_personajes">
@@ -44,19 +44,22 @@
                 <h2 class="nombrePersonaje"></h2>
                 <img class="fotoPersonaje">
                 <div class="habilidades">
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
-                    <button class="botonHabilidad"><img src="../fotos/espada_daño.png" class="habilidades"></button>
-                    <button class="botonHabilidad"><img src="../fotos/corazon_vida.png" class="habilidades"></button>
+                    <button class="botonHabilidad botonBordeAtaque"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad botonBordeAtaque"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad botonBordeAtaque"><img src="../fotos/espada_daño.png" class="habilidades"></button>
+                    <button class="botonHabilidad botonBordeCurar"><img src="../fotos/corazon_vida.png" class="habilidades"></button>
                 </div>
                 <span class="nombreAtaque">Selecciona Habilidad</span>
                 <button class="botonAtacar" id="botonAtacar">Atacar</button>
             </div>
-            
+
             <!--ANIMACIONES DE ATAQUES-->
             <div id="animacion" class="animacion">PREDETERMINADO</div>
-            
-            <div> 
+
+            <!--Animacion cambio de partida/enemigo-->
+            <div id="popup_cambioPartida" class="popup_cambioPartida"><p id="parrafo_cambio">PREDETERMINADO</p></div>
+
+            <div>
                 <h2 id="tituloLog">Acciones de Batalla</h2>
                 <textarea readonly disabled id="logBatalla"></textarea>
             </div>
