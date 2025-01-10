@@ -38,9 +38,9 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         vida: 150,
         habilidades: [
             { img: '../fotos/shrek1.png', alt: 'Huevo Duro', accion: 'ataque1shrek'},
-            { img: '../fotos/corazon_vida.png', alt: 'Graznido de Asno', accion: 'ataque2shrek'},
-            { img: '../fotos/espada_daño.png', alt: 'Eructo Mortal', accion: 'ataque3shrek'},
-            { img: '../fotos/corazon_vida.png', alt: 'Baño en la Ciénaga', accion: 'ataque4shrek'}
+            { img: '../fotos/shrek2.png', alt: 'Graznido de Asno', accion: 'ataque2shrek'},
+            { img: '../fotos/shrek3.png', alt: 'Eructo Mortal', accion: 'ataque3shrek'},
+            { img: '../fotos/shrek4.png', alt: 'Baño en la Ciénaga', accion: 'ataque4shrek'}
         ]
     },
     pablo: {
@@ -48,10 +48,10 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         nombre: "Pablo Motos",
         vida: 125,
         habilidades: [
-            { img: '../fotos/espada_daño.png', alt: 'Ataque Yoga', accion: 'ataque1pablo'},
-            { img: '../fotos/corazon_vida.png', alt: 'Pregunta Incómoda', accion: 'ataque2pablo'},
-            { img: '../fotos/espada_daño.png', alt: 'Experimento Explosivo', accion: 'ataque3pablo'},
-            { img: '../fotos/corazon_vida.png', alt: 'Trancas y Barrancas', accion: 'ataque4pablo'}
+            { img: '../fotos/pablo1.png', alt: 'Ataque Yoga', accion: 'ataque1pablo'},
+            { img: '../fotos/pablo2.png', alt: 'Pregunta Incómoda', accion: 'ataque2pablo'},
+            { img: '../fotos/pablo3.png', alt: 'Experimento Explosivo', accion: 'ataque3pablo'},
+            { img: '../fotos/pablo4.png', alt: 'Trancas y Barrancas', accion: 'ataque4pablo'}
         ]
     },
     walter: {
