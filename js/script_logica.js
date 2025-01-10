@@ -156,7 +156,6 @@ btnAtacar.addEventListener('click', function() {
             // Elegimos una habilidad al azar de las habilidades del enemigo
             let habilidadRandom = enemigo.habilidades[
                 Math.floor(Math.random() * enemigo.habilidades.length)
-                
             ];
             // Ejecutamos esa habilidad seleccionada al azar
             ejecutarRespuesta(habilidadRandom.accion);
@@ -182,13 +181,13 @@ function mostrarReglas() {
     document.getElementById('popup-pantalla').style.display = 'block';
   }
 
-  function esconderReglas() {
+function esconderReglas() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('popup-pantalla').style.display = 'none';
   }
   
   
-  function ejecutarAccion(accion){
+function ejecutarAccion(accion){
     //Animaciones aleatorias
     const animacion = document.getElementById('animacion');
     const animaciones = ['girar', 'pulso', 'mover'];
@@ -239,9 +238,19 @@ function mostrarReglas() {
 
         //SHREK ATAQUES
         case 'ataque1shrek':
+            animacion.innerHTML = "Huevo duro🥚";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 15;
             break;
         case 'ataque2shrek':
+            animacion.innerHTML = "Graznido de Asno🫏";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 10;
             probabilidad = Math.random();
             if (probabilidad <= 0.20) {
@@ -250,17 +259,37 @@ function mostrarReglas() {
             }
         break;
         case 'ataque3shrek':
+            animacion.innerHTML = "Eructo mortal🤮";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= (vidaEnemigo * 0.13);
         break;
         case 'ataque4shrek':
+            animacion.innerHTML = "Baño en la cienaga🤢";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaJugador += (150 - vidaJugador)*0.2;
         break;
 
         //PABLO ATAQUES
         case 'ataque1pablo':
+            animacion.innerHTML = "Ataque Yoga 🧘‍♂️";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 15;
             break;
         case 'ataque2pablo':
+            animacion.innerHTML = "Pregunta incomoda❓";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 10;
             probabilidad = Math.random();
             if (probabilidad <= 0.22) {
@@ -269,17 +298,37 @@ function mostrarReglas() {
             }
         break;
         case 'ataque3pablo':
+            animacion.innerHTML = "Experimento Explosivo ☢️💣";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= (vidaEnemigo * 0.15);
         break;
         case 'ataque4pablo':
+            animacion.innerHTML = "Trancas y Barrancas🐜🐜";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaJugador += (125 - vidaJugador)*0.25;
         break;
 
         //WALTER ATAQUES
         case 'ataque1walter':
+            animacion.innerHTML = "Ataque cristal💉";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 15;
             break;
         case 'ataque2walter':
+            animacion.innerHTML = "Ataque gorro🎩";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= 10;
             probabilidad = Math.random();
             if (probabilidad <= 0.30) {
@@ -288,9 +337,19 @@ function mostrarReglas() {
             }
         break;
         case 'ataque3walter':
+            animacion.innerHTML = "Mirada Penetrante👀";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaEnemigo -= (vidaEnemigo * 0.18);
         break;
         case 'ataque4walter':
+            animacion.innerHTML = "Descanso en la Caravana🚙";
+            animacion.classList.add(animacionRandom, 'show');
+            setTimeout(()=>{
+                animacion.classList.remove('show', animacionRandom);
+            }, 1000);
             vidaJugador += (100 - vidaJugador)*0.25;
         break;
     }
@@ -305,9 +364,6 @@ function mostrarReglas() {
     switch(accion1){
         //OZUNA ATAQUES
         case 'ataque1ozuna':
-            
-            
-             
             vidaJugador -= 15;
         break;
         case 'ataque2ozuna':
@@ -386,39 +442,45 @@ function mostrarReglas() {
     const barraVidaJugador = document.querySelector('#nivel-vida-personaje'); // Barra del jugador
     const barraVidaEnemigo = document.querySelector('#nivel-vida-enemigo');   // Barra del enemigo
 
+    // Asegurarse de que la vida no sea inferior a 0
+    const vidaJugadorMostrar = Math.max(vidaJugador, 0);
+    const vidaEnemigoMostrar = Math.max(vidaEnemigo, 0);
+
     // Calcular el porcentaje de vida para el jugador y el enemigo
-    const porcentajeVidaJugador = (vidaJugador / personajes[localStorage.getItem('personajeSeleccionado')].vida) * 100;
-    const porcentajeVidaEnemigo = (vidaEnemigo / personajes[enemigoAleatorio].vida) * 100;
+    const porcentajeVidaJugador = (vidaJugadorMostrar / personajes[localStorage.getItem('personajeSeleccionado')].vida) * 100;
+    const porcentajeVidaEnemigo = (vidaEnemigoMostrar / personajes[enemigoAleatorio].vida) * 100;
 
     // Actualizar la barra de vida del jugador
-    barraVidaJugador.style.width = porcentajeVidaJugador + '%';
-    barraVidaJugador.textContent = Math.round(vidaJugador);
+    barraVidaJugador.style.width = Math.max(porcentajeVidaJugador, 0) + '%';
+    barraVidaJugador.textContent = Math.round(vidaJugadorMostrar);
 
     // Actualizar la barra de vida del enemigo
-    barraVidaEnemigo.style.width = porcentajeVidaEnemigo + '%';
-    barraVidaEnemigo.textContent = Math.round(vidaEnemigo);
+    barraVidaEnemigo.style.width = Math.max(porcentajeVidaEnemigo, 0) + '%';
+    barraVidaEnemigo.textContent = Math.round(vidaEnemigoMostrar);
 }
 
-function comprobarVida(){
-    const popup_cambioPartida = document.getElementById
-    ('popup_cambioPartida');
-    const parrafo_cambio = document.getElementById
-    ('parrafo_cambio');
-     // Verificar si alguien ha ganado o perdido
-     if (vidaJugador <= 0) {
+function comprobarVida() {
+    const popup_cambioPartida = document.getElementById('popup_cambioPartida');
+    const parrafo_cambio = document.getElementById('parrafo_cambio');
+
+    // Actualizar las barras de vida antes de verificar
+    actualizarBarrasDeVida();
+
+    // Verificar si alguien ha ganado o perdido
+    if (vidaJugador <= 0) {
         parrafo_cambio.innerHTML = "HAS PERDIDO😭😭<br>REINICIANDO PARTIDA";
         popup_cambioPartida.classList.add('show', 'pierde');
-            setTimeout(()=>{
-                popup_cambioPartida.classList.remove('show');
-                reiniciarJuego(); 
-            }, 3500);
+        setTimeout(() => {
+            popup_cambioPartida.classList.remove('show');
+            reiniciarJuego();
+        }, 3500);
     } else if (vidaEnemigo <= 0) {
         parrafo_cambio.innerHTML = "HAS GANADO🎉🎉<br>REINICIANDO PARTIDA";
         popup_cambioPartida.classList.add('show', 'gana');
-            setTimeout(()=>{
-                popup_cambioPartida.classList.remove('show');
-                reiniciarJuego(); 
-            }, 2000);
+        setTimeout(() => {
+            popup_cambioPartida.classList.remove('show');
+            reiniciarJuego();
+        }, 2000);
     }
 }
 
