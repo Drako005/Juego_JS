@@ -16,8 +16,40 @@
  
     
     <div class="general">
-        <div class="titulo"><h1>¡Elige tu MEME!</h1></div>
+        <div id="cabecera">
+            <a href="video.html" class="boton_vuelta">VOLVER</a>
+            
+            <div class="titulo"><h1>¡Elige tu MEME!</h1></div>
 
+            <button onclick="mostrarReglas()"><img src="../fotos/ayuda_icono.png" class="foto_ayuda"></button>
+        </div>
+            <div id="popup-pantalla" onclick="esconderReglas()"></div>
+                <div id="popup">
+                <div class="popup_titulo">
+                    <h2>Mecánicas</h2>
+                    <button class="botonCerrar" onclick="esconderReglas()">Cerrar</button>
+                </div>
+                <ul>
+                    <li>Categorias:
+                        <ul class="listapopup">
+                            <li>❤️‍🩹Curativo: Vida equilibrada, baja capacidad de ataque pero gran poder curativo.</li>
+                            <li>🛡️Tanque: Mucha vida, ataque equilibrado y baja recuperacion de vida.</li>
+                            <li>⚔️Matador: Vida equilibrada, gran capacidad de ataque y poca recuperacion de vida.</li>
+                            <li>🧬Equilibrado: Aprendiz de todo maestro de nada.</li>
+                        </ul>
+                    </li>
+                    <li>Ataques:
+                        <ol>
+                            <li>Ataque basico.</li>
+                            <li>Ataque con posibilidad de crítico.</li>
+                            <li>Ataque porcentual según la vida del enemigo.</li>
+                            <li>Recuperacion de vida.</li>
+                        </ol>
+                    </li>
+                </ul>  
+                <h3>¡Elige tu personaje!</h3>
+            </div>
+        
         <div class="personajes_todos">
             <div class="personaje">
                 <h2 class="ozuna">OZUNA</h2>
