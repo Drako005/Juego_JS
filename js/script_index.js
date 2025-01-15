@@ -132,10 +132,6 @@ function obtenerPosicionElemento(elemento) {
 // Inicializar las bolas cuando se cargue el DOM
 window.addEventListener('load', inicializarBolas);
 
-
-
-
-
 // Pantalla de carga
 document.getElementById('boton').addEventListener('click', function(event) {
     event.preventDefault();  
@@ -143,8 +139,7 @@ document.getElementById('boton').addEventListener('click', function(event) {
     document.getElementById('loading-screen').style.display = 'flex';
   
     setTimeout(function() {
-      window.location.href = 'paginas/personajes.html';
+      window.location.href = 'paginas/video.html';
     }, 1000);
   });
   // Pantalla de carga FIN
-  
