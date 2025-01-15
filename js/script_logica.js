@@ -15,7 +15,11 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         }, 1000);
     });
 });
+
+
   // Pantalla de carga FIN
+
+
 
   // LOGICA DEL JUEGO
   let habilidadSeleccionada = null;
