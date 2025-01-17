@@ -63,10 +63,10 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         nombre: "Walter",
         vida: 100,
         habilidades: [
-            { img: '../fotos/espada_daño.png', alt: 'Ataque Cristal', accion: 'ataque1walter'},
-            { img: '../fotos/corazon_vida.png', alt: 'Ataque Gorro', accion: 'ataque2walter'},
-            { img: '../fotos/espada_daño.png', alt: 'Mirada Penetrante', accion: 'ataque3walter'},
-            { img: '../fotos/corazon_vida.png', alt: 'Descanso en la Caravana', accion: 'ataque4walter'}
+            { img: '../fotos/walter1.png', alt: 'Ataque Cristal', accion: 'ataque1walter'},
+            { img: '../fotos/walter2.png', alt: 'Ataque Gorro', accion: 'ataque2walter'},
+            { img: '../fotos/walter3.png', alt: 'Mirada Penetrante', accion: 'ataque3walter'},
+            { img: '../fotos/walter4.png', alt: 'Descanso en la Caravana', accion: 'ataque4walter'}
         ]
     }
 };
