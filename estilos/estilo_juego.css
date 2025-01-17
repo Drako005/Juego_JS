@@ -46,24 +46,24 @@
     max-height: 40vh;
     border-radius: 20px;
     filter: drop-shadow(0px 0px 10px gold);
-    animation: movimiento 2s ease infinite;
+    animation: movimiento 2s ease-in infinite;
     transform-origin: center center;
   }
   @keyframes movimiento {
     0% {
-      transform: translateX(0) translateY(0); /
+      transform: rotateZ(0deg);
     }
     25% {
-      transform: translateX(-4px) translateY(0); 
+      transform: rotateZ(-3deg);
     }
     50% {
-      transform: translateX(0) translateY(0); 
+      transform: rotateZ(0deg);
     }
     75% {
-      transform: translateX(4px) translateY(0); 
+      transform: rotateZ(3deg);
     }
     100% {
-      transform: translateX(0) translateY(0); 
+      transform: rotateZ(0deg);
     }
   }
 
