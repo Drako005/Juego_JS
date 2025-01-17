@@ -521,3 +521,9 @@ function comprobarVida() {
 function reiniciarJuego() {
     window.location.href = '../paginas/juego.html';
 }
+
+//ACTIVAR EL AUDIO DE PERSONAJES
+function playAudio() {
+    var audio = document.getElementById("miAudio");
+    audio.play();
+}
