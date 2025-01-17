@@ -24,25 +24,30 @@ div.general{
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(248, 63, 63) 100%);
 }
 h1{
+    user-select: none;
     color: #e2af2e;
     text-shadow: 2px 2px 4px black; 
     font-size: 3rem;         
 }
 a{
+    user-select: none;
     font-size: 1.5em;
     color: white;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 a::before{
+    user-select: none;
     color: white;
     text-decoration: none;
 }
 a::after{
+    user-select: none;
     color: white;
     text-decoration: none;
 }
 a:hover{
+    user-select: none;
     transform: scale(1.1);
 }
 
