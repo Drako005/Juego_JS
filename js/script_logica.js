@@ -527,3 +527,16 @@ function playAudio() {
     var audio = document.getElementById("miAudio");
     audio.play();
 }
+
+// Reproducción automática tras un retraso
+function iniciarAudioAutomatico(audioId, retraso) {
+    const audio = document.getElementById(audioId);
+    if (audio) {
+        setTimeout(() => {
+            audio.play().catch(err => console.log("Interacción requerida para reproducir el audio:", err));
+        }, retraso);
+    } else {
+        console.error(`No se encontró el audio con ID: ${audioId}`);
+    }
+}
+iniciarAudioAutomatico('miAudio', 1000); // Reproducir después de 1 segundo
