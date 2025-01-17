@@ -150,34 +150,64 @@ btnAtacar.addEventListener('mouseout', () => {
     btnAtacar.textContent = 'Atacar'; 
 });
 
-
+//ATAQUE DE JUGADOR Y RESPUESTA DEL ENEMIGO
+let isEnemyTurn = false;
 btnAtacar.addEventListener('click', function() {
+    if (isEnemyTurn) {
+        alert("Espera a que el enemigo termine su turno antes de atacar de nuevo.");
+        return;
+    }
+
     if (habilidadSeleccionada) {
-        ejecutarAccion(habilidadSeleccionada.accion); // Ejecuta el ataque del jugador
+        // Bloqueamos el botón para evitar múltiples ataques
+        isEnemyTurn = true;
+
+        // Ejecuta el ataque del jugador
+        ejecutarAccion(habilidadSeleccionada.accion);
+
         const enemigo = personajes[enemigoAleatorio];
 
-        if (enemigo) {
-            // Elegimos una habilidad al azar de las habilidades del enemigo
-            let habilidadRandom = enemigo.habilidades[
-                Math.floor(Math.random() * enemigo.habilidades.length)
-            ];
-            // Ejecutamos esa habilidad seleccionada al azar
-            ejecutarRespuesta(habilidadRandom.accion);
-            turnos++;
-            // Añadimos el ataque del enemigo al log
-            document.getElementById('logBatalla').innerHTML += 
-                    "Turno "+turnos+"\n"+
-                    personajes[personaje].nombre+": "+habilidadSeleccionada.alt+"\n"+
-                    personajes[enemigoAleatorio].nombre+": "+habilidadRandom.alt+"\n\n";
+        if (vidaEnemigo > 1) {
+            if (enemigo) {
+                // Elegimos una habilidad al azar de las habilidades del enemigo
+                let habilidadRandom = enemigo.habilidades[
+                    Math.floor(Math.random() * enemigo.habilidades.length)
+                ];
+
+                // Añadimos el ataque del jugador al log inmediatamente
+                turnos++;
+                document.getElementById('logBatalla').innerHTML += 
+                    "Turno " + turnos + "\n" +
+                    personajes[personaje].nombre + ": " + habilidadSeleccionada.alt + "\n";
+
+                // Retrasamos el ataque del enemigo usando setTimeout
+                setTimeout(() => {
+                    // Ejecutamos esa habilidad seleccionada al azar
+                    ejecutarRespuesta(habilidadRandom.accion);
+
+                    // Añadimos el ataque del enemigo al log
+                    document.getElementById('logBatalla').innerHTML += 
+                        personajes[enemigoAleatorio].nombre + ": " + habilidadRandom.alt + "\n\n";
+                    
+                    // Desplazamos el log hacia abajo automáticamente
                     const logBatalla = document.getElementById('logBatalla');
                     logBatalla.scrollTop = logBatalla.scrollHeight;
+
+                    // Desbloqueamos el botón para el siguiente turno
+                    isEnemyTurn = false;
+                }, 1000); // 1000 ms = 1 segundo
+            }
+        } else {
+            // Si el enemigo está derrotado, desbloqueamos el botón
+            isEnemyTurn = false;
         }
-        
     } else {
         alert("Por favor, selecciona un ataque primero.");
     }
+
     comprobarVida();
 });
+
 
 
 function mostrarReglas() {
