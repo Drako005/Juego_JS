@@ -81,7 +81,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         ]
     }
 };
-let partidas = 1;
+let partidas = 4;
 let turnos = 0;
 const personajesArray = Object.keys(personajes);
 const personaje = localStorage.getItem('personajeSeleccionado');
@@ -182,18 +182,46 @@ let enemigoAleatorio;
     }
     //FINAL BOSS
     if (partidas === 4){
+        const audioSu = document.createElement('audio');
         switch(personaje){
             case "ozuna":
                 enemigoAleatorio = "cr7";
+
+                document.body.classList.add('vibrando');
+                setTimeout(function() {
+                document.body.classList.remove('vibrando');
+                }, 1500); 
+                audioSu.src = '../audios/su.mp3';
+                audioSu.autoplay = true;
             break;
             case "shrek":
                 enemigoAleatorio = "cr7";
+
+                document.body.classList.add('vibrando');
+                setTimeout(function() {
+                document.body.classList.remove('vibrando');
+                }, 1500); 
+                audioSu.src = '../audios/su.mp3';
+                audioSu.autoplay = true;
             break;
             case "pablo":
                 enemigoAleatorio = "cr7";
+
+                document.body.classList.add('vibrando');
+                setTimeout(function() {
+                document.body.classList.remove('vibrando');
+                }, 1500); 
+                audioSu.src = '../audios/su.mp3';
+                audioSu.autoplay = true;
             break;
             case "walter":
                 enemigoAleatorio = "cr7";
+                document.body.classList.add('vibrando');
+                setTimeout(function() {
+                document.body.classList.remove('vibrando');
+                }, 1500); 
+                audioSu.src = '../audios/su.mp3';
+                audioSu.autoplay = true;
             break;
         }
     }
@@ -630,6 +658,8 @@ function comprobarVida() {
         setTimeout(() => {
             popup_cambioPartida.classList.remove('show');
             partidas++;
+            document.getElementById('logBatalla').innerHTML = "";
+            let turnos = 0;
             window.dispatchEvent(new Event('load'));
         }, 2000);
         
