@@ -81,7 +81,7 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
         ]
     }
 };
-let partidas = 4;
+let partidas = 1;
 let turnos = 0;
 const personajesArray = Object.keys(personajes);
 const personaje = localStorage.getItem('personajeSeleccionado');
