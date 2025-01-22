@@ -5,6 +5,7 @@
       padding: 0;
       font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       user-select: none;
+    transition: transform 0.1s;
   }
 
   div.general{
@@ -411,4 +412,27 @@ textarea{
   width: 30vw;
   padding: 20px;
   height: auto;
+}
+
+@keyframes vibrar {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-5px) scale(1.05); /* Aumenta el zoom al 110% */
+  }
+  50% {
+    transform: translateX(5px) scale(1.07); /* Aumenta el zoom al 120% */
+  }
+  75% {
+    transform: translateX(-5px) scale(1.05); /* Vuelve a acercarse un poco */
+  }
+  100% {
+    transform: translateX(5px) scale(1); /* Vuelve al tamaño original */
+  }
+}
+
+/* Clase para activar la vibración */
+.vibrando {
+  animation: vibrar 0.1s ease infinite;
 }
