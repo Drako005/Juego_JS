@@ -90,9 +90,7 @@
   }
   div.cabecera h1{
     font-size: 60px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: none;
     color: #000000;
     text-shadow: 3px 3px #ea0909;
     animation: movimiento 2s ease-in infinite;
