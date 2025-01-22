@@ -68,13 +68,25 @@ document.querySelectorAll('button[name="boton"]').forEach(function(boton) {
             { img: '../fotos/walter3.png', alt: 'Mirada Penetrante', accion: 'ataque3walter'},
             { img: '../fotos/walter4.png', alt: 'Descanso en la Caravana', accion: 'ataque4walter'}
         ]
+    },
+    cr7: {
+        imagen: '../fotos/cr7.png',
+        nombre: "Cristiano Ronaldo",
+        vida: 200,
+        habilidades: [
+            { img: '../fotos/walter1.png', alt: 'SIUUUUUUU', accion: 'ataque1cr7'},
+            { img: '../fotos/walter2.png', alt: 'Mejor pegarlo', accion: 'ataque2cr7'},
+            { img: '../fotos/walter3.png', alt: 'Turkish Arruspuchuchu', accion: 'ataque3cr7'},
+            { img: '../fotos/walter4.png', alt: 'CocaCola, agua...', accion: 'ataque4cr7'}
+        ]
     }
 };
+let partidas = 4;
 let turnos = 0;
 const personajesArray = Object.keys(personajes);
 const personaje = localStorage.getItem('personajeSeleccionado');
 //PONER LOS NOMBRES DE LOS 2 EN EL LOG
-let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
+let enemigoAleatorio;
   window.addEventListener('load', function() {
     //Aqui estaba declarado personaje
     
@@ -120,10 +132,72 @@ let enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArra
     }
 
     //Enemigo aleatorio
-   
-    while (enemigoAleatorio === personaje) {
-        enemigoAleatorio = personajesArray[Math.floor(Math.random() * personajesArray.length)];
+    if (partidas === 1){
+        switch(personaje){
+            case "ozuna":
+                enemigoAleatorio = "walter";
+            break;
+            case "shrek":
+                enemigoAleatorio = "ozuna";
+            break;
+            case "pablo":
+                enemigoAleatorio = "ozuna";
+            break;
+            case "walter":
+                enemigoAleatorio = "ozuna";
+            break;
+        }
     }
+    if (partidas === 2){
+        switch(personaje){
+            case "ozuna":
+                enemigoAleatorio = "shrek";
+            break;
+            case "shrek":
+                enemigoAleatorio = "walter";
+            break;
+            case "pablo":
+                enemigoAleatorio = "walter";
+            break;
+            case "walter":
+                enemigoAleatorio = "shrek";
+            break;
+        }
+    }
+    if (partidas === 3){
+        switch(personaje){
+            case "ozuna":
+                enemigoAleatorio = "pablo";
+            break;
+            case "shrek":
+                enemigoAleatorio = "pablo";
+            break;
+            case "pablo":
+                enemigoAleatorio = "shrek";
+            break;
+            case "walter":
+                enemigoAleatorio = "pablo";
+            break;
+        }
+    }
+    //FINAL BOSS
+    if (partidas === 4){
+        switch(personaje){
+            case "ozuna":
+                enemigoAleatorio = "cr7";
+            break;
+            case "shrek":
+                enemigoAleatorio = "cr7";
+            break;
+            case "pablo":
+                enemigoAleatorio = "cr7";
+            break;
+            case "walter":
+                enemigoAleatorio = "cr7";
+            break;
+        }
+    }
+    
 
     const imgEnemigo = document.querySelector('.fotoEnemigo');
     h2Enemigo = document.querySelector('.nombreEnemigo');
@@ -206,6 +280,7 @@ btnAtacar.addEventListener('click', function() {
     }
 
     comprobarVida();
+    
 });
 
 
@@ -249,6 +324,7 @@ function ejecutarAccion(accion){
             probabilidad = Math.random();
             if (probabilidad <= 0.25) {
                 vidaEnemigo -= 10;
+                animacion.innerHTML = "MORALEJA 🗿 CRITICO";
             }
         break;
         case 'ataque3ozuna':
@@ -289,7 +365,7 @@ function ejecutarAccion(accion){
             probabilidad = Math.random();
             if (probabilidad <= 0.20) {
                 vidaEnemigo -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+                animacion.innerHTML = "Graznido de Asno 🫏 CRITICO";
             }
         break;
         case 'ataque3shrek':
@@ -328,7 +404,7 @@ function ejecutarAccion(accion){
             probabilidad = Math.random();
             if (probabilidad <= 0.22) {
                 vidaEnemigo -= 10;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+                animacion.innerHTML = "Pregunta incomoda ❓CRITICO";
             }
         break;
         case 'ataque3pablo':
@@ -367,7 +443,7 @@ function ejecutarAccion(accion){
             probabilidad = Math.random();
             if (probabilidad <= 0.30) {
                 vidaEnemigo -= 12;
-                alert("¡Golpe crítico! Hiciste 10 puntos adicionales de daño.");
+                animacion.innerHTML = "Ataque gorro 🎩 CRITICO";
             }
         break;
         case 'ataque3walter':
@@ -399,6 +475,7 @@ function ejecutarAccion(accion){
         //OZUNA ATAQUES
         case 'ataque1ozuna':
             vidaJugador -= 15;
+            audio_daño();
         break;
         case 'ataque2ozuna':
             vidaJugador -= 10;
@@ -406,9 +483,11 @@ function ejecutarAccion(accion){
             if (probabilidad <= 0.25) {
                 vidaJugador -= 10;
             }
+            audio_daño();
         break;
         case 'ataque3ozuna':
             vidaJugador -= (vidaJugador * 0.15);
+            audio_daño();
         break;
         case 'ataque4ozuna':
             vidaEnemigo += (100 - vidaEnemigo)*0.3;
@@ -417,6 +496,7 @@ function ejecutarAccion(accion){
         //SHREK ATAQUES
          case 'ataque1shrek':
             vidaJugador -= 15;
+            audio_daño();
             break;
         case 'ataque2shrek':
             vidaJugador -= 10;
@@ -424,9 +504,11 @@ function ejecutarAccion(accion){
             if (probabilidad <= 0.20) {
                 vidaJugador -= 10;
             }
+            audio_daño();
         break;
         case 'ataque3shrek':
             vidaJugador -= (vidaJugador * 0.13);
+            audio_daño();
         break;
         case 'ataque4shrek':
             vidaEnemigo += (150 - vidaEnemigo)*0.2;
@@ -435,6 +517,7 @@ function ejecutarAccion(accion){
         //PABLO ATAQUES
         case 'ataque1pablo':
             vidaJugador -= 15;
+            audio_daño();
             break;
         case 'ataque2pablo':
             vidaJugador -= 10;
@@ -442,9 +525,11 @@ function ejecutarAccion(accion){
             if (probabilidad <= 0.22) {
                 vidaJugador -= 10;
             }
+            audio_daño();
         break;
         case 'ataque3pablo':
             vidaJugador -= (vidaJugador * 0.15);
+            audio_daño();
         break;
         case 'ataque4pablo':
             vidaEnemigo += (125 - vidaEnemigo)*0.25;
@@ -453,6 +538,7 @@ function ejecutarAccion(accion){
         //WALTER ATAQUES
         case 'ataque1walter':
             vidaJugador -= 15;
+            audio_daño();
             break;
         case 'ataque2walter':
             vidaJugador -= 10;
@@ -460,12 +546,40 @@ function ejecutarAccion(accion){
             if (probabilidad <= 0.30) {
                 vidaJugador -= 12;
             }
+            audio_daño();
         break;
         case 'ataque3walter':
             vidaJugador -= (vidaJugador * 0.18);
+            audio_daño();
         break;
         case 'ataque4walter':
             vidaEnemigo += (100 - vidaEnemigo)*0.25;
+        break;
+
+        //CR7 ATAQUES
+        case 'ataque1cr7':
+            vidaJugador -= 20;
+            const audio1 = document.createElement('audio');
+            audio1.src = '../audios/su.mp3';
+            audio1.autoplay = true;
+            break;
+        case 'ataque2cr7':
+            vidaJugador -= 10;
+            probabilidad = Math.random();
+            if (probabilidad <= 0.40) {
+                vidaJugador -= 10;
+            }
+        break;
+        case 'ataque3cr7':
+            vidaJugador -= (vidaJugador * 0.20);
+            const audio2 = document.createElement('audio');
+            audio2.src = '../audios/turkish.mp3';
+            audio2.autoplay = true;
+        break;
+        case 'ataque4cr7':
+            if(vidaEnemigo < 170){
+                vidaEnemigo += 30;
+            }
         break;
     }
     actualizarBarrasDeVida();
@@ -487,6 +601,7 @@ function ejecutarAccion(accion){
     // Actualizar la barra de vida del jugador
     barraVidaJugador.style.width = Math.max(porcentajeVidaJugador, 0) + '%';
     barraVidaJugador.textContent = Math.round(vidaJugadorMostrar);
+    
 
     // Actualizar la barra de vida del enemigo
     barraVidaEnemigo.style.width = Math.max(porcentajeVidaEnemigo, 0) + '%';
@@ -506,15 +621,18 @@ function comprobarVida() {
         popup_cambioPartida.classList.add('show', 'pierde');
         setTimeout(() => {
             popup_cambioPartida.classList.remove('show');
-            reiniciarJuego();
+            window.location.href = '../paginas/personajes.html';
         }, 3500);
     } else if (vidaEnemigo <= 0) {
-        parrafo_cambio.innerHTML = "HAS GANADO🎉🎉<br>REINICIANDO PARTIDA";
+        
+        parrafo_cambio.innerHTML = "HAS GANADO🎉🎉<br>SIGUIENTE NIVEL";
         popup_cambioPartida.classList.add('show', 'gana');
         setTimeout(() => {
             popup_cambioPartida.classList.remove('show');
-            reiniciarJuego();
+            partidas++;
+            window.dispatchEvent(new Event('load'));
         }, 2000);
+        
     }
 }
 
@@ -527,6 +645,12 @@ function playAudio() {
     var audio = document.getElementById("miAudio");
     audio.play();
 }
+function audio_daño(){
+    const audiodaño = document.createElement('audio');
+    audiodaño.src = '../audios/audio_dano.mp3';
+    audiodaño.autoplay = true;
+}
+
 
 // Reproducción automática tras un retraso
 function iniciarAudioAutomatico(audioId, retraso) {
