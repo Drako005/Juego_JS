@@ -95,6 +95,7 @@
     transform: translateX(-50%);
     color: #000000;
     text-shadow: 3px 3px #ea0909;
+    animation: movimiento 2s ease-in infinite;
   }
   div.cabecera button{
     display: flex;
