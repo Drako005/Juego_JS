@@ -24,12 +24,14 @@
                 <h2>Reglas del Juego</h2>
                 <button class="botonCerrar" onclick="esconderReglas()">Cerrar</button>
             </div>
-            <ul>
-                <li>Este es un juego de combate por turnos.</li>
-                <li>El objetivo es eliminar al personaje enemigo.</li>
-                <li>Cada personaje tiene 4 habilidades: <ol><li>Ataque básico.</li><li>Ataque con probabilidad de crítico.</li><li>Ataque porcentual según la vida del enemigo.</li><li>Curación.</li></ol></li>
-                <li>Selecciona tu ataque y haz clic en atacar. Después el enemigo te atacará.</li>
-            </ul>  
+            <div class="habilidades-container">             
+                <ul>
+                    <li>Este es un juego de combate por turnos.</li>
+                    <li>El objetivo es eliminar al personaje enemigo.</li>
+                    <li>Cada personaje tiene 4 habilidades: <ol><li><div class="habilidad-1"></div>Ataque básico.</li><li><div class="habilidad-2"></div>Ataque con probabilidad de crítico.</li><li><div class="habilidad-3"></div>Ataque porcentual según la vida del enemigo.</li><li><div class="habilidad-4"></div>Curación.</li></ol></li>
+                    <li>Selecciona tu ataque y haz clic en atacar. Después el enemigo te atacará.</li>
+                </ul>  
+            </div>
             <h3>¡Buena suerte!</h3>
         </div>
 
@@ -62,7 +64,7 @@
             <!--Animacion cambio de partida/enemigo-->
             <div id="popup_cambioPartida" class="popup_cambioPartida"><p id="parrafo_cambio">PREDETERMINADO</p></div>
 
-            <div>
+            <div class="divLogBatalla">
                 <h2 id="tituloLog">Acciones de Batalla</h2>
                 <textarea readonly disabled id="logBatalla"></textarea>
             </div>
