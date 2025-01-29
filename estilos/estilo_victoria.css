@@ -1,0 +1,83 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url("../fotos/fondoJuego.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    perspective: 1000px;
+  
+}
+
+.papel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../fotos/papel.png");
+    max-width: 305w;
+    width: 35vw;
+    height: 80vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 1));
+    transition: transform 0.2s ease-in-out;
+}
+.papel:hover{
+    transform: rotateY(180deg) rotateX(15deg) rotateZ(5deg);
+}
+.papel .atras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.papel:hover .atras{
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+.atras a{
+    max-width: 20%;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 2em;
+    text-decoration: none;
+    color: white;
+}
+.container {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 20vw;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+h1 {
+    font-size: 2.4vw;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+}
+
+p {
+    font-size: 1.3vw;
+    font-weight: bold;
+}
