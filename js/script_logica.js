@@ -681,6 +681,9 @@ function comprobarVida() {
             document.getElementById('logBatalla').innerHTML = "";
             turnos = 0;
             window.dispatchEvent(new Event('load'));
+            if (partidas > 4){
+                window.location.href = '../paginas/victoria.html';
+            }
         }, 2000);
         
     }
