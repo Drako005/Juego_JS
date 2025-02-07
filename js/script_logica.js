@@ -132,23 +132,22 @@ let enemigoAleatorio;
     }
 
 
-                                                //HAY QUE AÑADIR ESTO
-                                                if (personajes[personaje]?.habilidades) {
-                                                    personajes[personaje].habilidades.forEach((habilidad, index) => {
-                                                        // Selecciona las clases con un prefijo válido
-                                                        const div = document.querySelector(`.habilidades-container .habilidad-${index + 1}`); 
-                                                        if (div) {
-                                                            // Inserta la imagen y el texto de la habilidad
-                                                            div.innerHTML = `
-                                                                <img src="${habilidad.img}" alt="${habilidad.alt}" style="width: 30px; height: auto;">
-                                                            `;
-                                                        } else {
-                                                            console.warn(`No se encontró el div para la habilidad ${index + 1}`);
-                                                        }
-                                                    });
-                                                } else {
-                                                    console.error("No se pudieron cargar las habilidades del personaje.");
-                                                }
+        if (personajes[personaje]?.habilidades) {
+            personajes[personaje].habilidades.forEach((habilidad, index) => {
+                // Selecciona las clases con un prefijo válido
+                const div = document.querySelector(`.habilidades-container .habilidad-${index + 1}`); 
+                if (div) {
+                    // Inserta la imagen y el texto de la habilidad
+                    div.innerHTML = `
+                        <img src="${habilidad.img}" alt="${habilidad.alt}" style="width: 30px; height: auto;">
+                    `;
+                } else {
+                    console.warn(`No se encontró el div para la habilidad ${index + 1}`);
+                }
+            });
+        } else {
+            console.error("No se pudieron cargar las habilidades del personaje.");
+        }
 
 
     //Enemigo aleatorio
